@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system - Teal Green Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Teal Green Theme - Light Mode */
+    --background: 160 20% 98%;
+    --foreground: 166 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 166 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 166 40% 10%;
+
+    /* Primary Teal */
+    --primary: 166 76% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Lighter Teal */
+    --secondary: 166 40% 92%;
+    --secondary-foreground: 166 76% 25%;
+
+    /* Muted */
+    --muted: 160 20% 94%;
+    --muted-foreground: 166 20% 40%;
+
+    /* Accent - Teal highlight */
+    --accent: 166 60% 88%;
+    --accent-foreground: 166 76% 25%;
+
+    /* Success - Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive - Red for wrong answers */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning - Amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 166 30% 85%;
+    --input: 166 30% 85%;
+    --ring: 166 76% 35%;
+
+    --radius: 0.75rem;
+
+    /* Glassmorphism */
+    --glass-bg: 166 30% 98% / 0.7;
+    --glass-border: 166 30% 90% / 0.5;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(166 76% 35%), hsl(174 76% 40%));
+    --gradient-glow: 0 0 40px hsl(166 76% 35% / 0.3);
+  }
+
+  .dark {
+    /* Teal Green Theme - Dark Mode */
+    --background: 166 30% 6%;
+    --foreground: 160 20% 95%;
+
+    --card: 166 30% 10%;
+    --card-foreground: 160 20% 95%;
+
+    --popover: 166 30% 10%;
+    --popover-foreground: 160 20% 95%;
+
+    /* Primary Teal - Brighter for dark mode */
+    --primary: 166 76% 45%;
+    --primary-foreground: 166 40% 8%;
+
+    /* Secondary */
+    --secondary: 166 30% 18%;
+    --secondary-foreground: 166 60% 75%;
+
+    /* Muted */
+    --muted: 166 20% 15%;
+    --muted-foreground: 166 15% 60%;
+
+    /* Accent */
+    --accent: 166 40% 20%;
+    --accent-foreground: 166 60% 80%;
+
+    /* Success */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --border: 166 20% 20%;
+    --input: 166 20% 20%;
+    --ring: 166 76% 45%;
+
+    /* Glassmorphism - Dark */
+    --glass-bg: 166 30% 8% / 0.8;
+    --glass-border: 166 30% 25% / 0.5;
+
+    /* Gradients - Dark */
+    --gradient-primary: linear-gradient(135deg, hsl(166 76% 40%), hsl(174 76% 50%));
+    --gradient-glow: 0 0 40px hsl(166 76% 45% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50 shadow-xl;
+  }
+
+  .glow-effect {
+    box-shadow: var(--gradient-glow);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+}
+
+@layer utilities {
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(166 76% 35% / 0.2);
+    }
+    to {
+      box-shadow: 0 0 40px hsl(166 76% 35% / 0.4);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
